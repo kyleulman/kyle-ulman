@@ -17,7 +17,7 @@
 <svelte:window bind:innerWidth={w} />
 
 <header
-	class="relative z-40 m-auto flex w-full max-w-[1440px] items-center justify-between gap-4 bg-thunder-900 py-9"
+	class="relative z-40 m-auto flex w-full max-w-[1440px] items-center justify-between gap-4 bg-thunder-100 py-9 dark:bg-thunder-900"
 >
 	<h1 class="text-lg">
 		<a href="/">{manifest.title}</a>

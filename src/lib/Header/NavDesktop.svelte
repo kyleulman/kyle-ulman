@@ -25,10 +25,10 @@
 
 <style lang="postcss">
 	.passive {
-		@apply h-1 w-0 border-b-2 border-b-thunder-600 transition-all;
+		@apply h-1 w-0 border-b-2 border-b-thunder-400 transition-all dark:border-b-thunder-600;
 	}
 
 	.active {
-		@apply w-full border-b-thunder-600;
+		@apply w-full border-b-thunder-400 dark:border-b-thunder-600;
 	}
 </style>

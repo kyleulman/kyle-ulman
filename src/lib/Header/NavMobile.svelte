@@ -28,13 +28,13 @@
 {#if showMenu}
 	<nav
 		transition:slide
-		class="absolute top-full left-0 right-0 flex h-[90vh] flex-col overflow-y-auto bg-thunder-900 pb-32"
+		class="absolute top-full left-0 right-0 flex h-[90vh] flex-col overflow-y-auto bg-thunder-100 pb-32 dark:bg-thunder-900"
 	>
 		{#each manifest.pages as { title, slug, isNewTab }}
 			{#if isNewTab}
 				<a
 					href={slug}
-					class="flex items-center gap-1 border-t border-solid border-thunder-100/20 px-7 py-16 first-of-type:border-t-0 hover:bg-thunder-800"
+					class="flex items-center gap-1 border-t border-solid border-thunder-900/20 px-7 py-16 first-of-type:border-t-0 hover:bg-thunder-200 dark:border-thunder-100/20 dark:hover:bg-thunder-800"
 					target="_blank"
 				>
 					{title}<ArrowUpRight />
@@ -42,7 +42,7 @@
 			{:else}
 				<a
 					href={slug}
-					class="border-t border-solid border-thunder-100/20 px-7 py-16 first-of-type:border-t-0 hover:bg-thunder-800"
+					class="border-t border-solid border-thunder-900/20 px-7 py-16 first-of-type:border-t-0 hover:bg-thunder-200 dark:border-thunder-100/20 dark:hover:bg-thunder-800"
 				>
 					{title}
 				</a>

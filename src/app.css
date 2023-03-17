@@ -8,6 +8,6 @@
 	}
 
 	body {
-		@apply flex min-h-screen flex-col bg-thunder-100 px-6 text-thunder-900 dark:bg-thunder-900 dark:text-thunder-100;
+		@apply flex min-h-screen flex-col bg-thunder-100 px-6 text-thunder-800 dark:bg-thunder-900 dark:text-thunder-100;
 	}
 }

@@ -15,5 +15,8 @@
 </script>
 
 {#if $shroud}
-	<div transition:fade={{ duration: 150 }} class="absolute inset-0 z-30 bg-thunder-900" />
+	<div
+		transition:fade={{ duration: 150 }}
+		class="absolute inset-0 z-30 bg-thunder-100 dark:bg-thunder-900"
+	/>
 {/if}
