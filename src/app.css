@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+	html.scroll-disabled {
+		@apply overflow-hidden;
+	}
+
 	body {
 		@apply flex min-h-screen flex-col bg-thunder-100 px-6 text-thunder-900 dark:bg-thunder-900 dark:text-thunder-100;
 	}
