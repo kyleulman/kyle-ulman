@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { manifest } from '../stores';
 	import ArrowUpRight from 'carbon-icons-svelte/lib/ArrowUpRight.svelte';
+	import { manifest } from '../stores';
 </script>
 
 <nav class="flex gap-4 text-lg font-light">

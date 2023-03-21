@@ -16,6 +16,15 @@ module.exports = {
 					800: '#53394b',
 					900: '#34252f'
 				}
+			},
+			screens: {
+				'mobile-s': '320px',
+				'mobile-m': '375px',
+				'mobile-l': '425px',
+				tablet: '768px',
+				laptop: '1024px',
+				'laptop-l': '1440px',
+				'4k': '2560px'
 			}
 		}
 	},

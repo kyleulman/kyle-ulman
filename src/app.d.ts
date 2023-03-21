@@ -7,6 +7,14 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+
+	interface Item {
+		href: string;
+		label?: string;
+		description?: string;
+		isExternal?: boolean;
+		isTab?: boolean;
+	}
 }
 
 export {};
