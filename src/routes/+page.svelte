@@ -4,20 +4,15 @@
 
 	const clients = [
 		{
-			href: 'https://suds.ulman.digital',
-			label: 'Suds',
-			description: 'Professional grooming & self-service dog wash.'
+			href: 'https://www.cattledogroofing.com',
+			label: 'Cattle Dog Roofing',
+			description: 'Roofing services and home repair.'
 		},
-		// {
-		// 	href: 'https://cattledogroofing.ulman.digital',
-		// 	label: 'Cattle Dog Roofing',
-		// 	description: 'Roofing services and home repair.'
-		// },
-		// {
-		// 	href: 'https://ctshauling.ulman.digital',
-		// 	label: `C&T's Hauling`,
-		// 	description: 'Junk removal and home clean-outs.'
-		// },
+		{
+			href: 'https://ctshaulingllc.vercel.app',
+			label: `C&T's Hauling`,
+			description: 'Junk removal and home clean-outs.'
+		},
 		{
 			href: 'https://www.upwork.com/freelancers/~0112b43845ad4099da',
 			description: 'More freelance experience on Upwork!',
