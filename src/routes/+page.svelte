@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import ContactList from '$lib/ContactList.svelte';
 	import LinkList from '$lib/LinkList.svelte';
+	import { siteMetadata } from '../app-data';
 
 	const clients = [
 		{
@@ -22,18 +24,6 @@
 	];
 
 	const projects = [
-		// {
-		// 	href: 'https://www.github.com/kyleulman/create-svelte-super',
-		// 	label: 'Create Svelte Super',
-		// 	description: 'A complete SvelteKit starter template and CLI.',
-		// 	isExternal: true
-		// },
-		// {
-		// 	href: 'https://www.github.com/kyleulman/locked',
-		// 	label: 'Locked',
-		// 	description: 'Manage passwords locally without relying on a third-party solution.',
-		// 	isExternal: true
-		// },
 		{
 			href: 'https://www.learnsveltekit.com',
 			label: 'Learn SvelteKit',
@@ -74,12 +64,13 @@
 			isExternal: true
 		}
 	];
-</script>
 
-<svelte:head>
-	<title>Kyle Ulman</title>
-	<meta name="description" content="My developer website and portfolio." />
-</svelte:head>
+	const pageMetadata = {
+		title: "Let's work together",
+		description: 'Learn more about tools to grow your business.',
+		url: $page.url.origin
+	};
+</script>
 
 <header class="flex flex-col items-center justify-between gap-3 mobile-l:flex-row">
 	<h1 class="text-4xl">Kyle Ulman</h1>
@@ -128,11 +119,6 @@
 			></code
 		>
 		script.
-		<!-- I'm currently building an open-source
-		RSS reader and podcast player, which you can check out at <a
-			href="https://castaway.ulman.digital"
-			class="underline">castaway.ulman.digital</a
-		>. -->
 	</p>
 </section>
 <LinkList heading="Projects" items={projects} />
