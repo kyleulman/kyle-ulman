@@ -28,7 +28,7 @@
 {#if showMenu}
 	<nav
 		transition:slide
-		class="absolute top-full left-0 right-0 flex h-[90vh] flex-col overflow-y-auto bg-thunder-100 pb-32 dark:bg-thunder-900"
+		class="absolute left-0 right-0 top-full flex h-[90vh] flex-col overflow-y-auto bg-thunder-100 pb-32 dark:bg-thunder-900"
 	>
 		{#each manifest.pages as { title, slug, isNewTab }}
 			{#if isNewTab}
