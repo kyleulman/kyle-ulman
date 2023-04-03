@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ContactList from '$lib/ContactList.svelte';
 	import LinkList from '$lib/LinkList.svelte';
 	import type { PageData } from './$types';
 
@@ -7,9 +6,9 @@
 </script>
 
 <header class="flex flex-col items-center justify-between gap-3 mobile-l:flex-row">
-	<h1 class="text-4xl">Kyle Ulman</h1>
+	<h1 class="text-4xl">{data.content.user?.name}</h1>
 	<a
-		href="https://www.upwork.com/freelancers/~0112b43845ad4099da"
+		href={data.content.user?.blog + '/on-upwork'}
 		target="_blank"
 		rel="noopener noreferrer nofollow"
 		class="whitespace-nowrap bg-thunder-800 p-3 text-thunder-100 hover:bg-thunder-700"
@@ -20,8 +19,8 @@
 <section class="flex flex-col items-center gap-3 text-center mobile-l:flex-row mobile-l:text-left">
 	<figure class="w-36 flex-shrink-0 overflow-hidden rounded-full p-0">
 		<img
-			src="https://res.cloudinary.com/ulman-digital/image/upload/v1659685767/ulman-digital/kyle-448.jpg"
-			alt="Headshot"
+			src={data.content.user?.avatar_url}
+			alt="Head shot."
 			width={144}
 			height={144}
 			class="bg-thunder-800"
@@ -29,31 +28,58 @@
 	</figure>
 	<article>
 		<p>
-			Hiya! I'm a web developer from Wilmington, NC. I've built custom websites for small businesses
-			and worked with <a
-				href="https://www.upwork.com/freelancers/~0112b43845ad4099da"
-				target="_blank"
-				rel="noopener noreferrer nofollow"
-				class="underline">teams on Upwork</a
-			> to bring their ideas to life.
+			{data.content.user?.bio}
 		</p>
 	</article>
 </section>
-<LinkList heading="Client Work" items={data.content.clients} />
-<section class="bg-thunder-800 p-6 text-thunder-100 shadow-md">
-	<!-- TODO: Add notify me CTA? -->
-	<p>
-		I also enjoy building tools and apps that solve problems. I'm currently building a complete
-		SvelteKit starter template and CLI that adds Tailwind, PWA support, and metadata scaffolding to
-		the <code
-			><a
-				href="https://github.com/sveltejs/kit/tree/master/packages/create-svelte"
-				rel="noopener noreferrer nofollow"
-				class="underline">create-svelte</a
-			></code
-		>
-		script.
-	</p>
+
+{#if data.content.repos}
+	<LinkList content={data.content.repos} />
+{/if}
+
+<section>
+	<h2 class="mb-3 flex items-center gap-2 text-3xl">
+		<div class="h-3 w-3 rounded-full bg-green-500" />
+		I'm Online
+	</h2>
+	<article class="bg-thunder-800 p-6 text-thunder-100 shadow-md">
+		<ul class="space-y-3">
+			{#if data.content.user?.blog}
+				<li class="flex flex-col justify-between mobile-l:flex-row">
+					<span class="opacity-60">Upwork</span>
+					<a href={data.content.user?.blog + '/on-upwork'} class="font-medium underline">
+						/on-upwork
+					</a>
+				</li>
+			{/if}
+			{#if data.content.user?.html_url}
+				{@const url = data.content.user?.html_url}
+				<li class="flex flex-col justify-between mobile-l:flex-row">
+					<span class="opacity-60">GitHub</span>
+					<a href={url} class="font-medium underline">
+						{url.slice(url.indexOf('k') - 1)}
+					</a>
+				</li>
+			{/if}
+			{#if data.content.user?.twitter_username}
+				<li class="flex flex-col justify-between mobile-l:flex-row">
+					<span class="opacity-60">Twitter</span>
+					<a
+						href={'https://www.twitter.com/' + data.content.user?.twitter_username}
+						class="font-medium underline"
+					>
+						/{data.content.user?.twitter_username}
+					</a>
+				</li>
+			{/if}
+			{#if data.content.user?.email}
+				<li class="flex flex-col justify-between mobile-l:flex-row">
+					<span class="opacity-60">Email</span>
+					<a href={'mailto:' + data.content.user?.email} class="font-medium underline">
+						{data.content.user?.email}
+					</a>
+				</li>
+			{/if}
+		</ul>
+	</article>
 </section>
-<LinkList heading="Projects" items={data.content.projects} />
-<ContactList heading="I'm online!" items={data.content.contacts} />

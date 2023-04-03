@@ -30,33 +30,6 @@ export const content = {
 				description: 'The API that powers my projects.',
 				isExternal: true
 			}
-		],
-		contacts: [
-			{
-				href: 'https://www.upwork.com/freelancers/~0112b43845ad4099da',
-				label: `Let's work together`,
-				description: 'Upwork',
-				isExternal: true,
-				isTab: true
-			},
-			{
-				href: 'https://github.com/kyleulman',
-				label: 'github.com/kyleulman',
-				description: 'GitHub',
-				isExternal: true
-			},
-			{
-				href: 'https://twitter.com/kyleulman',
-				label: 'twitter.com/kyleulman',
-				description: 'Twitter',
-				isExternal: true
-			},
-			{
-				href: 'mailto:kyle@ulman.digital',
-				label: 'kyle@ulman.digital',
-				description: 'Email',
-				isExternal: true
-			}
 		]
 	}
 };
