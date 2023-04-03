@@ -3,8 +3,6 @@ import { content } from '../content';
 import type { PageServerLoad } from './$types';
 import { octokit } from '$lib/octokit';
 
-export const prerender = true;
-
 export const load = (async ({ url }) => {
 	const page: PageMetadata = {
 		title: "Let's work together",
