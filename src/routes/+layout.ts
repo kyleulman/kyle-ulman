@@ -6,7 +6,7 @@ export const load = (({ url }) => {
 		title: 'Kyle Ulman',
 		type: 'website',
 		robots: 'all',
-		imageSrc: url.origin + '/icon.svg',
+		imageSrc: url.origin + '/icon.png',
 		imageAlt: 'Website image.',
 		twitterCard: 'summary',
 		twitterSite: 'kyleulman',
