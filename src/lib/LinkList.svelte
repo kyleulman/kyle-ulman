@@ -15,17 +15,19 @@
 						<h3 class="text-2xl">{r.name}</h3>
 						<p class:opacity-60={r.name}>{r.description}</p>
 					</div>
-					{#if r.homepage}
-						<img src="/website.svg" alt="To website." width="20" height="20" class="h-5 w-5" />
-					{:else}
-						<img
-							src="/github-mark-white.svg"
-							alt="GitHub logo."
-							width="20"
-							height="20"
-							class="h-5 w-5"
-						/>
-					{/if}
+					<figure class="self-start rounded-full bg-thunder-800 p-1 dark:bg-transparent">
+						{#if r.homepage}
+							<img src="/website.svg" alt="To website." width="20" height="20" class="h-5 w-5" />
+						{:else}
+							<img
+								src="/github-mark-white.svg"
+								alt="GitHub logo."
+								width="20"
+								height="20"
+								class="h-5 w-5"
+							/>
+						{/if}
+					</figure>
 				</a>
 			</li>
 		{/each}
