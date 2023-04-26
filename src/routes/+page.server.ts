@@ -1,21 +1,19 @@
-import type { PageMetadata } from '@kyleulman/lib';
-import { content } from '../content';
+import { VITE_OCTOKIT_PAT } from '$env/static/private';
+import { Octokit } from 'octokit';
 import type { PageServerLoad } from './$types';
-import { octokit } from '$lib/octokit';
+
+const octokit = new Octokit({ auth: VITE_OCTOKIT_PAT });
 
 export const load = (async ({ url }) => {
-	const page: PageMetadata = {
-		title: "Let's work together",
-		description: 'Learn more about tools to grow your business.',
-		url: url.href
-	};
+	const page = await import('./content');
+
+	page.home.metadata.url = url.href;
 
 	const user = await getUser();
 	const repos = await getRepos();
 
 	return {
-		page: page,
-		content: { ...content.home, user, repos }
+		content: { ...page.home, user, repos }
 	};
 }) satisfies PageServerLoad;
 

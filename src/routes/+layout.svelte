@@ -1,15 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Head } from '@kyleulman/lib';
+	import { Head } from '@kyleulman/workbench';
+	import '@skeletonlabs/skeleton/styles/all.css';
+	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 	import '../app.css';
-	import type { PageData } from './$types';
+	import type { LayoutData } from './$types';
 
-	export let data: PageData;
+	export let data: LayoutData;
 </script>
 
-<Head page={$page.data.page} site={data.site} />
+{#key $page}
+	<Head page={$page.data.content.metadata} shared={data.shared} />
+{/key}
 
-<main class="my-12 flex-1 space-y-12">
+<main class="my-8 flex flex-col gap-8 px-4">
 	<slot />
 </main>
-<footer class="my-6 text-center">&copy; {new Date().getFullYear()} Ulman Digital</footer>

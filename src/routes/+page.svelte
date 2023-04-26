@@ -1,39 +1,43 @@
 <script lang="ts">
-	import LinkList from '$lib/LinkList.svelte';
 	import type { PageData } from './$types';
+	import { Header, Card, InfoList } from '@kyleulman/workbench';
 
 	export let data: PageData;
+
+	const reposList = data.content.repos?.map((prop) => {
+		return {
+			image: {
+				src: prop.homepage ? "/website.svg" : "/github-mark-white.svg"
+			},
+			heading: prop.name,
+			detail: `<a href=${prop.homepage || prop.html_url}>${prop.description}</a>`
+		}
+	})
 </script>
 
-<header class="flex flex-col items-center justify-between gap-3 mobile-l:flex-row">
-	<h1 class="text-4xl">{data.content.user?.name}</h1>
-	<a
-		href={data.content.user?.blog + '/on-upwork'}
-		target="_blank"
-		rel="noopener noreferrer nofollow"
-		class="whitespace-nowrap bg-thunder-800 p-3 text-thunder-100 hover:bg-thunder-700"
-	>
-		Let's work together
-	</a>
-</header>
-<section class="flex flex-col items-center gap-3 text-center mobile-l:flex-row mobile-l:text-left">
-	<figure class="w-36 flex-shrink-0 overflow-hidden rounded-full p-0">
-		<img
-			src={data.content.user?.avatar_url}
-			alt="Head shot."
-			width={144}
-			height={144}
-			class="bg-thunder-800"
-		/>
-	</figure>
-	<article>
-		<p>
-			{data.content.user?.bio}
-		</p>
-	</article>
-</section>
+<Header
+	content={{
+		title: {
+			href: '/',
+			logo: { src: data.content.user?.avatar_url || '', alt: '' },
+			label: data.content.user?.name || ''
+		},
+		contact: [
+			{
+				icon: 'work',
+				href: `${data.content.user?.blog}/on-upwork` || '',
+				label: "Let's work together"
+			}
+		]
+	}}
+/>
 
-{#if data.content.repos}
+<Card content={{ detail: data.content.user?.bio || '' }} />
+
+<!-- <InfoList content={{list: reposList}} /> -->
+
+<!--
+	if data.content.repos}
 	<LinkList content={data.content.repos} />
 {/if}
 
@@ -83,3 +87,4 @@
 		</ul>
 	</article>
 </section>
+-->

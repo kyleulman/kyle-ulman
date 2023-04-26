@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/@kyleulman/workbench/dist/*.{html,js,svelte,ts}',
+		require('path').join(
+			require.resolve('@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
 	theme: {
 		extend: {
+			fontFamily: {
+				'material-outlined': 'Material\\ Symbols\\ Outlined'
+			},
 			colors: {
 				thunder: {
 					50: '#f9f6f8',
@@ -17,16 +28,7 @@ module.exports = {
 					900: '#34252f'
 				}
 			},
-			screens: {
-				'mobile-s': '320px',
-				'mobile-m': '375px',
-				'mobile-l': '425px',
-				tablet: '768px',
-				laptop: '1024px',
-				'laptop-l': '1440px',
-				'4k': '2560px'
-			}
 		}
 	},
-	plugins: []
+	plugins: [...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()]
 };
