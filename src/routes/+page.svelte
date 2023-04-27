@@ -1,90 +1,124 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { Header, Card, InfoList } from '@kyleulman/workbench';
+	import { Bio, IconList, Footer } from '@kyleulman/workbench';
+	import type { IconList as IconListType } from '@kyleulman/workbench/dist/types';
 
 	export let data: PageData;
 
-	const reposList = data.content.repos?.map((prop) => {
-		return {
-			image: {
-				src: prop.homepage ? "/website.svg" : "/github-mark-white.svg"
-			},
-			heading: prop.name,
-			detail: `<a href=${prop.homepage || prop.html_url}>${prop.description}</a>`
-		}
-	})
-</script>
+	const name = data.content.user?.name;
 
-<Header
-	content={{
-		title: {
-			href: '/',
-			logo: { src: data.content.user?.avatar_url || '', alt: '' },
-			label: data.content.user?.name || ''
+	const bio = {
+		image: {
+			src: data.content.user?.avatar_url || '',
+			alt: 'Avatar',
+			width: 144,
+			height: 144
 		},
-		contact: [
+		detail: data.content.user?.bio || ''
+	};
+
+	// TODO: Fix this type
+	const projects: any = {
+		heading: 'Projects',
+		list: data.content.repos?.map((prop) => {
+			return {
+				href: prop.homepage || prop.html_url,
+				heading: prop.name,
+				detail: prop.description,
+				icon: prop.homepage
+					? {
+							name: 'language',
+							size: '24px'
+					  }
+					: undefined,
+				image: prop.homepage
+					? undefined
+					: {
+							src: '/images/github.svg',
+							alt: 'GitHub logo',
+							width: 24,
+							height: 24
+					  },
+				isReversed: true,
+				isItemsCenter: false
+			};
+		})
+	};
+
+	const externals: IconListType = {
+		heading: `<div class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div>I'm online</div>`,
+		list: [
 			{
-				icon: 'work',
-				href: `${data.content.user?.blog}/on-upwork` || '',
-				label: "Let's work together"
+				href: 'https://www.learnsveltekit.com',
+				heading: `Learn SvelteKit`,
+				detail: `I write about what's possible with SvelteKit`,
+				image: {
+					src: '/images/learn-sveltekit.svg',
+					alt: 'Learn SvelteKit icon',
+					width: 36,
+					height: 36
+				},
+				isReversed: false,
+				isItemsCenter: true
+			},
+			{
+				href: '/on-upwork',
+				heading: `Let's work together`,
+				detail: 'Web development services on Upwork',
+				image: {
+					src: '/images/upwork.svg',
+					alt: 'UpWork icon',
+					width: 36,
+					height: 36
+				},
+				isReversed: false,
+				isItemsCenter: true
+			},
+			{
+				href: 'https://github.com/kyleulman?tab=repositories',
+				heading: `GitHub`,
+				image: {
+					src: '/images/github.svg',
+					alt: 'UpWork icon',
+					width: 36,
+					height: 36
+				},
+				isReversed: false,
+				isItemsCenter: true
+			},
+			{
+				href: 'https://www.twitter.com/kyleulman',
+				heading: `Twitter`,
+				image: {
+					src: '/images/twitter.svg',
+					alt: 'Twitter icon',
+					width: 36,
+					height: 36
+				},
+				isReversed: false,
+				isItemsCenter: true
+			},
+			{
+				href: 'mailto:hello@kyleulman.com',
+				heading: `Send a message`,
+				detail: `hello@kyleulman.com`,
+				icon: {
+					name: 'mail',
+					size: '36px'
+				},
+				isReversed: false,
+				isItemsCenter: true
 			}
 		]
-	}}
-/>
+	};
 
-<Card content={{ detail: data.content.user?.bio || '' }} />
+	const footer = {
+		copyright: data.content.user?.name || ''
+	};
+</script>
 
-<!-- <InfoList content={{list: reposList}} /> -->
-
-<!--
-	if data.content.repos}
-	<LinkList content={data.content.repos} />
-{/if}
-
-<section>
-	<h2 class="mb-3 flex items-center gap-2 text-3xl">
-		<div class="h-3 w-3 rounded-full bg-green-500" />
-		I'm Online
-	</h2>
-	<article class="bg-thunder-800 p-6 text-thunder-100 shadow-md">
-		<ul class="space-y-3">
-			{#if data.content.user?.blog}
-				<li class="flex flex-col justify-between mobile-l:flex-row">
-					<span class="opacity-60">Upwork</span>
-					<a href={data.content.user?.blog + '/on-upwork'} class="font-medium underline">
-						/on-upwork
-					</a>
-				</li>
-			{/if}
-			{#if data.content.user?.html_url}
-				{@const url = data.content.user?.html_url}
-				<li class="flex flex-col justify-between mobile-l:flex-row">
-					<span class="opacity-60">GitHub</span>
-					<a href={url} class="font-medium underline">
-						{url.slice(url.indexOf('k') - 1)}
-					</a>
-				</li>
-			{/if}
-			{#if data.content.user?.twitter_username}
-				<li class="flex flex-col justify-between mobile-l:flex-row">
-					<span class="opacity-60">Twitter</span>
-					<a
-						href={'https://www.twitter.com/' + data.content.user?.twitter_username}
-						class="font-medium underline"
-					>
-						/{data.content.user?.twitter_username}
-					</a>
-				</li>
-			{/if}
-			{#if data.content.user?.email}
-				<li class="flex flex-col justify-between mobile-l:flex-row">
-					<span class="opacity-60">Email</span>
-					<a href={'mailto:' + data.content.user?.email} class="font-medium underline">
-						{data.content.user?.email}
-					</a>
-				</li>
-			{/if}
-		</ul>
-	</article>
-</section>
--->
+<h1 class="text-center sm:text-left">{name}</h1>
+<Bio content={bio} />
+<IconList content={projects} />
+<IconList content={externals} />
+<Footer content={footer} />

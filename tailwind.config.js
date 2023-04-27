@@ -1,18 +1,16 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-	darkMode: 'class',
+export default {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/@kyleulman/workbench/dist/*.{html,js,svelte,ts}',
-		require('path').join(
-			require.resolve('@skeletonlabs/skeleton'),
-			'../**/*.{html,js,svelte,ts}'
-		)
+		'./node_modules/@kyleulman/workbench/dist/*.{html,js,svelte,ts}'
 	],
 	theme: {
 		extend: {
 			fontFamily: {
-				'material-outlined': 'Material\\ Symbols\\ Outlined'
+				sans: ['Pathway\\ Extreme', ...defaultTheme.fontFamily.sans],
+				material: 'Material\\ Symbols\\ Outlined'
 			},
 			colors: {
 				thunder: {
@@ -27,8 +25,8 @@ module.exports = {
 					800: '#53394b',
 					900: '#34252f'
 				}
-			},
+			}
 		}
 	},
-	plugins: [...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()]
+	plugins: []
 };

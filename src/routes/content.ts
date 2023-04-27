@@ -18,9 +18,9 @@ export const sharedMetadata: SharedMetadata = {
 };
 
 export const home: { metadata: PageMetadata } = {
-  metadata: {
-    title: "Let's work together",
+	metadata: {
+		title: "Let's work together",
 		description: 'Learn more about tools to grow your business.',
-		url: ""
-  }
-}
+		url: ''
+	}
+};
