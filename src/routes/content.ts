@@ -5,8 +5,8 @@ export const sharedMetadata: SharedMetadata = {
 	type: 'website',
 	robots: 'all',
 	image: {
-		src: 'https://kyu.is/images/card-1440x720.png',
-		alt: 'Website banner.',
+		src: 'https://res.cloudinary.com/kyuisonline/image/upload/v1682725013/kyuisonline/card-720-png.png',
+		alt: 'Kyu is Online logo.',
 		width: '720',
 		height: '720'
 	},
