@@ -1,5 +1,5 @@
-# Kyle Ulman
+# Kyu is Online
 
 My developer website and portfolio.
 
-[https://www.kyleulman.com](https://www.kyleulman.com)
+[https://www.kyu.is](https://www.kyu.is)

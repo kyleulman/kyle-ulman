@@ -75,7 +75,7 @@
 				isItemsCenter: true
 			},
 			{
-				href: 'https://github.com/kyleulman?tab=repositories',
+				href: 'https://github.com/kyuisonline?tab=repositories&q=&type=public',
 				heading: `GitHub`,
 				image: {
 					src: '/images/github.svg',
@@ -87,7 +87,7 @@
 				isItemsCenter: true
 			},
 			{
-				href: 'https://www.twitter.com/kyleulman',
+				href: 'https://www.twitter.com/kyuisonline',
 				heading: `Twitter`,
 				image: {
 					src: '/images/twitter.svg',
@@ -99,9 +99,9 @@
 				isItemsCenter: true
 			},
 			{
-				href: 'mailto:hello@kyleulman.com',
+				href: 'mailto:hello@kyu.is',
 				heading: `Send a message`,
-				detail: `hello@kyleulman.com`,
+				detail: `hello@kyu.is`,
 				icon: {
 					name: 'mail',
 					size: '36px'

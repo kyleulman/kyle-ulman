@@ -1,26 +1,27 @@
 import type { PageMetadata, SharedMetadata } from '@kyleulman/workbench';
 
 export const sharedMetadata: SharedMetadata = {
-	title: 'Kyle Ulman',
+	title: 'Kyu is Online',
 	type: 'website',
 	robots: 'all',
 	image: {
-		src: 'https://kyleulman.com/images/icon.png',
+		src: 'https://kyu.is/images/card-1440x720.png',
 		alt: 'Website banner.',
 		width: '720',
 		height: '720'
 	},
 	twitter: {
 		card: 'summary',
-		site: 'kyleulman',
-		creator: 'kyleulman'
+		site: 'kyuisonline',
+		creator: 'kyuisonline'
 	}
 };
 
 export const home: { metadata: PageMetadata } = {
 	metadata: {
 		title: "Let's work together",
-		description: 'Learn more about tools to grow your business.',
+		description:
+			'Heya! I utilize SvelteKit to help teams on Upwork bring their ideas to life.',
 		url: ''
 	}
 };
