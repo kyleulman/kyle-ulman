@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { Bio, IconList, Footer } from '@kyleulman/workbench';
-	import type { IconList as IconListType } from '@kyleulman/workbench/dist/types';
+	import { Bio, IconList, Footer } from '@kyuisonline/workbench';
+	import type { IconList as IconListType } from '@kyuisonline/workbench/dist/types';
 
 	export let data: PageData;
 
