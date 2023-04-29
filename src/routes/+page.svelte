@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import { Bio, IconList, Footer } from '@kyuisonline/workbench';
+	import { Bio, IconList } from '@kyuisonline/workbench';
 	import type { IconList as IconListType } from '@kyuisonline/workbench/dist/types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -111,14 +111,9 @@
 			}
 		]
 	};
-
-	const footer = {
-		copyright: data.content.user?.name || ''
-	};
 </script>
 
 <h1 class="text-center sm:text-left">{name}</h1>
 <Bio content={bio} />
 <IconList content={projects} />
 <IconList content={externals} />
-<Footer content={footer} />

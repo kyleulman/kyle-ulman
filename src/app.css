@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply mx-auto max-w-xl bg-thunder-900 text-thunder-100;
+		@apply mx-auto flex min-h-screen max-w-xl flex-col bg-thunder-900 text-thunder-100;
 	}
 }
 
