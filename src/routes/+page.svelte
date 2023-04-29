@@ -17,32 +17,26 @@
 		detail: data.content.user?.bio || ''
 	};
 
-	// TODO: Fix this type
-	const projects: any = {
-		heading: 'Projects',
-		list: data.content.repos?.map((prop) => {
+	const projectsList =
+		data.content.repos?.map((prop) => {
 			return {
-				href: prop.homepage || prop.html_url,
+				href: prop.html_url,
 				heading: prop.name,
-				detail: prop.description,
-				icon: prop.homepage
-					? {
-							name: 'language',
-							size: '24px'
-					  }
-					: undefined,
-				image: prop.homepage
-					? undefined
-					: {
-							src: '/images/github.svg',
-							alt: 'GitHub logo',
-							width: 24,
-							height: 24
-					  },
+				detail: prop.description || '',
+				image: {
+					src: '/images/github.svg',
+					alt: 'GitHub logo',
+					width: 24,
+					height: 24
+				},
 				isReversed: true,
 				isItemsCenter: false
 			};
-		})
+		}) || [];
+
+	const projects: IconListType = {
+		heading: 'Projects',
+		list: projectsList
 	};
 
 	const externals: IconListType = {
