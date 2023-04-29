@@ -1,20 +1,30 @@
 <script lang="ts">
 	import { Bio, IconList } from '@kyuisonline/workbench';
-	import type { IconList as IconListType } from '@kyuisonline/workbench/dist/types';
+	import type {
+		IconList as IconListType,
+		Bio as BioType
+	} from '@kyuisonline/workbench/dist/types';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	const name = data.content.user?.name;
 
-	const bio = {
+	const bio: BioType = {
 		image: {
 			src: data.content.user?.avatar_url || '',
 			alt: 'Avatar',
 			width: 144,
 			height: 144
 		},
-		detail: data.content.user?.bio || ''
+		detail: data.content.user?.bio || '',
+		actions: [
+			{
+				href: '/on-upwork',
+				label: "Let's work together",
+				as: 'button'
+			}
+		]
 	};
 
 	const projectsList =
